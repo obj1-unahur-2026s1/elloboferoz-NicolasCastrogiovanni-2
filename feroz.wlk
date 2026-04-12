@@ -1,10 +1,7 @@
-import caperucita.*
-import cazador.*
-
-
 object feroz {
 
     var peso = 10
+
   method peso() {
     return
             peso
@@ -23,8 +20,7 @@ object feroz {
     peso -= vecesQueCorre
   }
 
-  method crisis() {
+  method sufreCrisis() {
     peso = 10 
   } 
-
 }
