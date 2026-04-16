@@ -4,7 +4,7 @@ object caperucita {
 
   method peso() {
     return
-            60 ++ canasta.peso()
+            60 + canasta.peso()
   }
 
 }

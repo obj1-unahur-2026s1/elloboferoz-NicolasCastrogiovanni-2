@@ -1,0 +1,223 @@
+import caperucita.*
+import cazador.*
+import feroz.*
+import objetos.*
+
+describe "historia 1" {
+  test "feroz corre al bosque" {
+    feroz.corre(1)
+    assert.equals(9, feroz.peso())
+  }
+
+  test "feroz corre hacia la casa de la abuelita" {
+    feroz.corre(1)
+    feroz.corre(1)
+    assert.equals(8, feroz.peso())
+  }
+
+  test "feroz se come a la abuelita" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    assert.equals(13, feroz.peso())
+  }
+
+  test "a caperucita le quedan 5 manzanas porque se le cae una" {
+    canasta.manzanasEnCanasta(5)
+    assert.equals(1, canasta.peso())
+  }
+
+  test "feroz se come a caperucita con su canasta" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    assert.equals(19.1, feroz.peso())
+  }
+
+  test "el cazador no tiene el arma cargada" {
+    assert.notThat(rifle.estaCargada())
+  }
+
+  test "feroz se come al cazador" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.seCome(cazador)
+    assert.equals(31.1, feroz.peso())
+  }
+
+  test "feroz se siente bien" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.seCome(cazador)
+    assert.that(feroz.estaSaludable())
+  }
+}
+
+describe "historia 2" {
+  test "feroz corre al bosque" {
+  feroz.corre(1)
+  assert.equals(9, feroz.peso())
+  }
+
+  test "feroz corre a la casa de la abuelita" {
+    feroz.corre(1)
+    feroz.corre(1)
+    assert.equals(8, feroz.peso())
+  }
+
+  test "feroz se come a la abuelita" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    assert.equals(13, feroz.peso())
+  }
+
+  test "a caperucita le quedan 5 manzanas porque se le cae una" {
+    canasta.manzanasEnCanasta(5)
+    assert.equals(1, canasta.peso())
+  }
+
+  test "feroz se come a caperucita con su canasta" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    assert.equals (19.1, feroz.peso())
+  }
+
+  test "cazador carga el rifle" {
+    cazador.recargar()
+    assert.that(rifle.estaCargada())
+  }
+
+  test "cazador le dispara a feroz" {
+    cazador.recargar()
+    cazador.disparar()
+    assert.notThat(rifle.estaCargada())
+  }
+
+  test "feroz sufre una crisis por el disparo" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.sufreCrisis()
+    assert.equals(10, feroz.peso())
+  }
+
+  test "feroz corre al bosque para escapar" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.sufreCrisis()
+    feroz.corre(1)
+    assert.equals(9, feroz.peso())
+  }
+
+  test "feroz corre a la casa del cazador" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.sufreCrisis()
+    feroz.corre(1)
+    feroz.corre(1)
+    assert.equals(8, feroz.peso())
+  }
+
+  test "feroz se come a la mascota del cazador" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.sufreCrisis()
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(cazador.mascota())
+    assert.equals(38, feroz.peso())
+  }
+
+    test "feroz se siente bien" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(abuelita)
+    canasta.manzanasEnCanasta(5)
+    feroz.seCome(caperucita)
+    feroz.sufreCrisis()
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(cazador.mascota())
+    assert.that(feroz.estaSaludable())
+  }
+}
+
+describe "historia 3" {
+  test "feroz corre al bosque y caperucita le dice que la abuelita esta en peligro" {
+    feroz.corre(1)
+    assert.equals(9, feroz.peso())
+  }
+
+  test "feroz corre a la casa de la abuelita para ayudarla" {
+    feroz.corre(1)
+    feroz.corre(1)
+    assert.equals(8, feroz.peso())
+  }
+
+  test "cazador carga el rifle" {
+    cazador.recargar()
+    assert.that(rifle.estaCargada())
+  }
+
+  test "cazador le dispara a la abuelita" {
+    cazador.recargar()
+    cazador.disparar()
+    assert.notThat(rifle.estaCargada())
+  }
+
+  test "feroz se come al cazador al ver que le disparo a la abuelita" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(cazador)
+    assert.equals(20, feroz.peso())
+  }
+
+  test "feroz sufre una crisis al ver a la abuelita muerta" {
+    feroz.corre(1)
+    feroz.corre(1)
+    feroz.seCome(cazador)
+    feroz.sufreCrisis()
+    assert.equals(10, feroz.peso())
+  }
+
+  test "caperucita junta manzanas para darle las gracias a feroz" {
+    canasta.manzanasEnCanasta(20)
+    assert.equals(4, canasta.peso())
+  }
+
+  test "feroz se come las manzanas y se vuelve amigo de caperucita" {
+    canasta.manzanasEnCanasta(20)
+    feroz.seCome(canasta)
+    assert.equals(10.4, feroz.peso())
+  }
+
+  test "feroz no se siente bien" {
+    canasta.manzanasEnCanasta(20)
+    feroz.seCome(canasta)
+    assert.notThat(feroz.estaSaludable())
+  }
+}
+

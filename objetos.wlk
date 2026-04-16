@@ -34,10 +34,10 @@ object rifle {
   }
   
   method cargar() {
-    cantidadBalas += 1
+    cantidadBalas = cantidadBalas + 1
   }
 
   method descargar() {
-    cantidadBalas -= 1
+    cantidadBalas = cantidadBalas - 1
     }
 }

@@ -13,11 +13,11 @@ object feroz {
   } 
 
   method seCome(comida) {
-    peso += (comida.peso() * 0.1)
+    peso = peso + (comida.peso() * 0.1)
   }
 
   method corre(vecesQueCorre) {
-    peso -= vecesQueCorre
+    peso = peso - vecesQueCorre
   }
 
   method sufreCrisis() {
